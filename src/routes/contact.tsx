@@ -7,11 +7,11 @@ import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { ALL_SERVICE_NAMES, BRAND } from "@/lib/site-data";
 
-type ContactSearch = { service: string };
+type ContactSearch = { service?: string | undefined };
 
 export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>): ContactSearch => ({
-    service: typeof search["service"] === "string" ? search["service"] : "",
+    service: typeof search["service"] === "string" ? search["service"] : undefined,
   }),
   head: () => ({
     meta: [
