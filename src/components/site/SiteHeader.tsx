@@ -37,9 +37,7 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass py-2"
-          : "bg-transparent py-5 text-[oklch(0.96_0.01_84)] [&_.text-muted-foreground]:text-[oklch(0.96_0.01_84/0.6)] [&_nav_a]:text-[oklch(0.96_0.01_84/0.85)]"
+        scrolled ? "glass py-2" : "bg-transparent py-5 text-[oklch(0.96_0.01_84)]"
       }`}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 lg:px-8">
@@ -51,7 +49,11 @@ export function SiteHeader() {
             <span className="block truncate font-display text-base leading-tight sm:text-lg">
               {BRAND.name}
             </span>
-            <span className="hidden text-[0.62rem] uppercase tracking-[0.24em] text-muted-foreground sm:block">
+            <span
+              className={`hidden text-[0.62rem] uppercase tracking-[0.24em] sm:block ${
+                scrolled ? "text-muted-foreground" : "text-[oklch(0.96_0.01_84/0.6)]"
+              }`}
+            >
               {BRAND.tagline}
             </span>
           </span>
@@ -65,7 +67,9 @@ export function SiteHeader() {
                 to={l.to}
                 activeOptions={{ exact: l.to === "/" }}
                 activeProps={{ className: "text-accent" }}
-                className="rounded-sm px-3 py-2 text-sm text-foreground/80 transition-colors hover:text-accent"
+                className={`rounded-sm px-3 py-2 text-sm transition-colors hover:text-accent ${
+                  scrolled ? "text-foreground/80" : "text-[oklch(0.96_0.01_84/0.88)]"
+                }`}
               >
                 {l.label}
               </Link>
