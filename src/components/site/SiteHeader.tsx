@@ -37,7 +37,9 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass py-2" : "py-5 bg-transparent"
+        scrolled
+          ? "glass py-2"
+          : "bg-transparent py-5 text-[oklch(0.96_0.01_84)] [&_.text-muted-foreground]:text-[oklch(0.96_0.01_84/0.6)] [&_nav_a]:text-[oklch(0.96_0.01_84/0.85)]"
       }`}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 lg:px-8">
