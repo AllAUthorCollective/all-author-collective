@@ -32,6 +32,7 @@
   --color-gold-soft: var(--gold-soft);
   --color-burgundy: var(--burgundy);
   --color-ink: var(--ink);
+  --color-cream: oklch(0.96 0.01 84);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
