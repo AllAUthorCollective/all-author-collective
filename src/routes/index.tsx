@@ -92,7 +92,7 @@ function Hero() {
         height={1200}
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25 mix-blend-luminosity"
       />
-      <div className="relative mx-auto w-full max-w-5xl px-5 py-32 text-center text-[oklch(0.96_0.01_84)] lg:px-8">
+      <div className="relative mx-auto w-full max-w-5xl px-5 py-32 text-center text-cream lg:px-8">
         <Reveal>
           <p className="eyebrow">The Author's Growth Partner</p>
         </Reveal>
@@ -102,7 +102,7 @@ function Hero() {
           </h1>
         </Reveal>
         <Reveal delay={240}>
-          <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-[oklch(0.96_0.01_84/0.75)]">
+          <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-cream/75">
             Book marketing and promotion that turns your story into a bestseller.
           </p>
         </Reveal>
@@ -116,7 +116,7 @@ function Hero() {
             </a>
             <a
               href="#final-cta"
-              className="rounded-sm border border-[oklch(0.96_0.01_84/0.35)] px-8 py-4 text-sm font-medium tracking-wide transition-colors hover:border-accent hover:text-accent"
+              className="rounded-sm border border-cream/35 px-8 py-4 text-sm font-medium tracking-wide transition-colors hover:border-accent hover:text-accent"
             >
               Book a Free Consultation
             </a>
@@ -285,13 +285,13 @@ function Stats() {
 
 function FinalCta() {
   return (
-    <section id="final-cta" className="hero-gradient scroll-mt-24 py-32 text-[oklch(0.96_0.01_84)]">
+    <section id="final-cta" className="hero-gradient scroll-mt-24 py-32 text-cream">
       <div className="mx-auto max-w-3xl px-5 text-center lg:px-8">
         <Reveal>
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">
             Ready to Make Your Book Unmissable?
           </h2>
-          <p className="mx-auto mt-6 max-w-xl leading-relaxed text-[oklch(0.96_0.01_84/0.72)]">
+          <p className="mx-auto mt-6 max-w-xl leading-relaxed text-cream/75">
             One conversation is all it takes to know whether we're the right partner for your book.
             No pressure, no jargon — just a plan.
           </p>
@@ -301,7 +301,7 @@ function FinalCta() {
           >
             Get a Free Consultation
           </Link>
-          <p className="mt-6 text-xs tracking-wide text-[oklch(0.96_0.01_84/0.6)]">{BRAND.email}</p>
+          <p className="mt-6 text-xs tracking-wide text-cream/60">{BRAND.email}</p>
         </Reveal>
       </div>
     </section>

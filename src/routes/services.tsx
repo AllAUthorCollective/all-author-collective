@@ -81,10 +81,10 @@ function Services() {
         ))}
       </div>
 
-      <section className="hero-gradient py-24 text-center text-[oklch(0.96_0.01_84)]">
+      <section className="hero-gradient py-24 text-center text-cream">
         <div className="mx-auto max-w-2xl px-5 lg:px-8">
           <h2 className="font-display text-3xl sm:text-4xl">Not sure where to start?</h2>
-          <p className="mt-5 text-[oklch(0.96_0.01_84/0.72)]">
+          <p className="mt-5 text-cream/75">
             Tell us about your book and we'll tell you honestly what it needs first.
           </p>
           <Link

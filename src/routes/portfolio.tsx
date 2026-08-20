@@ -86,7 +86,7 @@ function Portfolio() {
         </div>
       </section>
 
-      <section className="hero-gradient py-24 text-center text-[oklch(0.96_0.01_84)]">
+      <section className="hero-gradient py-24 text-center text-cream">
         <div className="mx-auto max-w-2xl px-5 lg:px-8">
           <h2 className="font-display text-3xl sm:text-4xl">Your book could be next.</h2>
           <Link
