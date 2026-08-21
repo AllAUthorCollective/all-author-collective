@@ -53,11 +53,11 @@ function Contact() {
                 src="https://tally.so/r/Y57pYW"
                 title="Tally contact form"
                 width="100%"
-                height="600"
+                height="800"
                 scrolling="auto"
                 frameBorder="0"
                 allow="fullscreen"
-                className="mt-6 min-h-[600px] w-full overflow-hidden rounded-sm bg-transparent"
+                className="mt-6 min-h-[800px] w-full overflow-hidden rounded-sm bg-transparent"
               />
               <p className="mt-4 text-center text-xs text-muted-foreground">
                 Prefer email? Write to{" "}
