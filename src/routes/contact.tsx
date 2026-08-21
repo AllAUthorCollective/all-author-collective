@@ -1,11 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
 import { Mail, Clock, CalendarDays, MessageCircle, Send } from "lucide-react";
-import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
-import { ALL_SERVICE_NAMES, BRAND } from "@/lib/site-data";
+import { BRAND } from "@/lib/site-data";
 
 type ContactSearch = { service?: string | undefined };
 
@@ -33,31 +31,7 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-const BUDGETS = [
-  "Under $500",
-  "$500 – $1,500",
-  "$1,500 – $3,000",
-  "$3,000 – $7,500",
-  "$7,500+",
-  "Not sure yet",
-];
-
-const inputClass =
-  "w-full rounded-sm border border-border bg-card px-4 py-3 text-sm outline-none transition-colors focus:border-accent";
-
 function Contact() {
-  const { service } = Route.useSearch();
-  const [sent, setSent] = useState(false);
-
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSent(true);
-    toast.success("Thank you — your message is on its way.", {
-      description: "We reply to every author within 24 hours.",
-    });
-    e.currentTarget.reset();
-  };
-
   return (
     <>
       <Toaster />
@@ -70,72 +44,29 @@ function Contact() {
       <section className="py-24">
         <div className="mx-auto grid max-w-6xl gap-14 px-5 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
           <Reveal>
-            <form onSubmit={onSubmit} className="glass grid gap-5 rounded-lg p-8 sm:p-10">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <label className="grid gap-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                  Full name
-                  <input required name="name" className={inputClass} placeholder="Your name" />
-                </label>
-                <label className="grid gap-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                  Email address
-                  <input
-                    required
-                    type="email"
-                    name="email"
-                    className={inputClass}
-                    placeholder="you@email.com"
-                  />
-                </label>
-              </div>
-
-              <label className="grid gap-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                Book title / genre
-                <input name="book" className={inputClass} placeholder="e.g. The Salt Harbour — Literary Fiction" />
-              </label>
-
-              <label className="grid gap-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                Service interested in
-                <select name="service" defaultValue={service ?? ""} className={inputClass}>
-                  <option value="">Select a service</option>
-                  <option value="Not sure yet — advise me">Not sure yet — advise me</option>
-                  {ALL_SERVICE_NAMES.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
-              </label>
-
-              <label className="grid gap-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                Budget range
-                <select name="budget" className={inputClass} defaultValue="">
-                  <option value="">Select a range</option>
-                  {BUDGETS.map((b) => (
-                    <option key={b} value={b}>
-                      {b}
-                    </option>
-                  ))}
-                </select>
-              </label>
-
-              <label className="grid gap-2 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                Message
-                <textarea
-                  required
-                  name="message"
-                  rows={5}
-                  className={inputClass}
-                  placeholder="Tell us about your book, your readers and where you'd like to be in six months."
-                />
-              </label>
-
-              <button className="mt-2 rounded-sm bg-primary px-7 py-4 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">
-                {sent ? "Message sent" : "Send message"}
-              </button>
-              <p className="text-center text-xs text-muted-foreground">
-                We respond within 24 hours — always from a real person.
+            <div className="glass rounded-lg p-8 sm:p-10">
+              <h2 className="font-display text-2xl">Start Your Project</h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Tell us about your book and we'll reply within 24 hours.
               </p>
-            </form>
+              <iframe
+                src="https://tally.so/r/Y57pYW"
+                title="Tally contact form"
+                width="100%"
+                height="800"
+                scrolling="auto"
+                frameBorder="0"
+                allow="fullscreen"
+                className="mt-6 min-h-[800px] w-full overflow-hidden rounded-sm bg-transparent"
+              />
+              <p className="mt-4 text-center text-xs text-muted-foreground">
+                Prefer email? Write to{" "}
+                <a href={`mailto:${BRAND.email}`} className="underline hover:text-accent">
+                  {BRAND.email}
+                </a>{" "}
+                directly.
+              </p>
+            </div>
           </Reveal>
 
           <Reveal delay={120} className="grid content-start gap-6">
