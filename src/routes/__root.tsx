@@ -6,6 +6,8 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
+  type ErrorRouteComponent,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -37,7 +39,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponentBase({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -72,6 +74,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     </div>
   );
 }
+
+// Newer router typings require route error components to expose the optional
+// preload hook shared with lazy-loaded route components.
+const ErrorComponent: ErrorRouteComponent = Object.assign(ErrorComponentBase, {
+  preload: () => Promise.resolve(),
+});
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
