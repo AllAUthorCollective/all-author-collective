@@ -73,6 +73,12 @@ function ErrorComponentBase({ error, reset }: ErrorComponentProps) {
   );
 }
 
+// Newer router typings require route error components to expose the optional
+// preload hook shared with lazy-loaded route components.
+const ErrorComponent: ErrorRouteComponent = Object.assign(ErrorComponentBase, {
+  preload: undefined,
+});
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
